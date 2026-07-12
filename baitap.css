@@ -1,0 +1,180 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    /* Đảm bảo padding/border không làm tăng kích thước hộp */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #f8f9fa;
+}
+
+/* --- 2. LIÊN KẾT BỎ QUA (Skip Link) --- */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    /* Ẩn hoàn toàn khỏi màn hình ban đầu */
+    left: 10px;
+    background: #0066cc;
+    color: white;
+    padding: 12px 24px;
+    z-index: 100;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 10px;
+    /* Xuất hiện khi người dùng nhấn phím Tab */
+    outline: 3px solid #ffcc00;
+}
+
+/* --- 3. ĐIỀU HƯỚNG LINH HOẠT (Flexbox) --- */
+.site-header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    /* Áp dụng Mô hình hộp tạo khoảng trống bắt mắt */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.logo span {
+    color: #0066cc;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    /* Tạo khoảng cách giữa các mục menu */
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+    color: #0066cc;
+    background-color: #e6f0fa;
+    outline: 2px solid #0066cc;
+    /* Tăng cường khả năng nhận biết khi lấy nét */
+}
+
+/* --- 4. NỘI DUNG CHÍNH & LƯỚI (CSS Grid) --- */
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+main:focus {
+    outline: none;
+    /* Xóa outline mặc định của trình duyệt khi skip-link kích hoạt */
+}
+
+/* Phần Hero */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #e6f0fa 0%, #f3f8fc 100%);
+    border-radius: 12px;
+    margin-bottom: 40px;
+    border: 1px solid #d0e2f5;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    color: #111;
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #0066cc;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 102, 204, 0.2);
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    background-color: #0052a3;
+    outline: 3px solid #ffcc00;
+}
+
+/* Hệ thống Lưới (CSS Grid) */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Tự động co giãn responsive */
+    gap: 30px;
+}
+
+/* Kiểu dáng Thẻ áp dụng Mô hình hộp bắt mắt */
+.card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+/* Chân trang */
+.site-footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+    background-color: #222;
+    color: #aaa;
+    font-size: 0.9rem;
+}
